@@ -1,0 +1,36 @@
+<div class="register-container">
+  <h2>User Registration</h2>
+  <form (ngSubmit)="register()">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="newUser.name" name="name" required />
+
+    <label>Type:</label>
+    <input type="text" [(ngModel)]="newUser.type" name="type" required />
+
+    <label>Password:</label>
+    <input type="password" [(ngModel)]="newUser.password" name="password" required />
+
+    <button type="submit">Register</button>
+  </form>
+
+  <h3>Registered Users</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Password</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.type }}</td>
+      <td>{{ user.password }}</td>
+      <td>
+        <button (click)="edit(user)">Edit</button>
+        <button (click)="deleteUser(user)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
